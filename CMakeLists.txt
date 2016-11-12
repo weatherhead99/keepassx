@@ -21,7 +21,7 @@ endif()
 
 project(KeePassX)
 
-cmake_minimum_required(VERSION 2.8.12)
+cmake_minimum_required(VERSION 3.2)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
@@ -100,7 +100,8 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
   set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} -Wl,-z,relro")
 endif()
 
-add_gcc_compiler_cxxflags("-std=c++11")
+set(CMAKE_CXX_STANDARD 11)
+
 
 if(APPLE)
   add_gcc_compiler_cxxflags("-stdlib=libc++")
